@@ -8,12 +8,12 @@ version '1.0.0'
 -- Scripts que serão carregados no servidor e no cliente
 server_scripts {
     '@mysql-async/lib/MySQL.lua',  -- Certifique-se de estar usando o MySQL Async ou oxmysql
-    'config.lua',
-    'server.lua'
+    'shared/config.lua',
+    'server/*.lua'
 }
 
 client_scripts {
-    'client.lua'
+    'client/*.lua'
 }
 
 -- Definir dependências, caso esteja usando qb-core
