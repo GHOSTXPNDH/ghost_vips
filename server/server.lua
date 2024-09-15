@@ -12,7 +12,7 @@ local Config = Config or {}
 QBCore = exports['qb-core']:GetCoreObject()
 
 -- Função para buscar o grupo VIP do jogador no banco de dados
-QBCore.Functions.CreateCallback('qb-salary:getVipGroup', function(source, cb)
+QBCore.Functions.CreateCallback('ghost-vips:getVipGroup', function(source, cb)
     local Player = QBCore.Functions.GetPlayer(source)
     
     if Player then
@@ -34,12 +34,12 @@ QBCore.Functions.CreateCallback('qb-salary:getVipGroup', function(source, cb)
 end)
 
 -- Função para pagar o salário baseado no grupo VIP
-RegisterNetEvent('qb-salary:paySalary', function(source)
+RegisterNetEvent('ghost-vips:paySalary', function(source)
     local Player = QBCore.Functions.GetPlayer(source)
 
     if Player then
         -- Pegar o grupo VIP do jogador e pagar o salário
-        QBCore.Functions.TriggerCallback('qb-salary:getVipGroup', source, function(vipGroup)
+        QBCore.Functions.TriggerCallback('ghost-vips:getVipGroup', source, function(vipGroup)
             if vipGroup and Config.Vips[vipGroup] then
                 local vipConfig = Config.Vips[vipGroup]
 
@@ -157,7 +157,7 @@ Citizen.CreateThread(function()
 
         -- Paga o salário para todos os jogadores conectados
         for _, playerId in pairs(QBCore.Functions.GetPlayers()) do
-            TriggerEvent('qb-salary:paySalary', playerId)
+            TriggerEvent('ghost-vips:paySalary', playerId)
         end
     end
 end)
