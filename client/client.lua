@@ -1,9 +1,5 @@
--- client.lua
-
 -- Carregar o arquivo de configuração
 local Config = Config or {}
-
--------------------------------------------------------------------------------------------------------
 
 local tempoSalario = 1800 -- 30 minutos em segundos
 local salarioTimer = 0
