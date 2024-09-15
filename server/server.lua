@@ -6,9 +6,6 @@ if not QBCore then return end
 local Config = Config or {}
 
 -------------------------------------------------------------------------------------------------------
-
-QBCore = exports['qb-core']:GetCoreObject()
-
 -- -- Função para buscar o grupo VIP do jogador no banco de dados
 
 
